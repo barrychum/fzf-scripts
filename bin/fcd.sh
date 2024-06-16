@@ -1,18 +1,18 @@
 # Function to change directory using fzf
-fd3() {
+fcd3() {
   local dir
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
 # Function to change directory using fzf with partial match support
-fd2() {
+fcd2() {
   local query="${1:-}"
   local dir
   dir=$(find ${HOME} -type d 2> /dev/null | fzf --query="$query" +m) && cd "$dir"
 }
 
 # Function to change directory using fzf with specific directory search
-fd() {
+fcd() {
   # List of base directories to search
   local base_dirs=(
     "$HOME/Documents"
